@@ -1,0 +1,6 @@
+syntax: glob
+samples/HelloWorld/bin/
+samples/HelloWorld/obj/
+wpf-mvp.suo
+wpf-mvp/obj/
+wpf-mvp/bin/

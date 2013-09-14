@@ -1,0 +1,27 @@
+﻿<mvp:BaseWindow x:TypeArguments="helloWorld:MainWindowModel,helloWorld:MainWindowPresenter,mvp:ICloseableView"
+                x:Class="HelloWorld.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:mvp="clr-namespace:Wpf.Mvp;assembly=wpf-mvp"
+                xmlns:helloWorld="clr-namespace:HelloWorld"
+                Title="MainWindow" Height="131" Width="469"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d" d:DataContext="{d:DesignInstance helloWorld:MainWindowModel}">
+    <!-- ^- line with d:DataContext enables IntelliSense when you declaring a Bindings Paths -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="18">Enter your name</TextBlock>
+        <TextBox Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1" FontSize="18"></TextBox>
+
+        <Button Command="{mvp:CommandRef SayHello}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20">Say hello</Button>
+    </Grid>
+</mvp:BaseWindow>
